@@ -1,9 +1,9 @@
-buildscript {
+buildscript{
     repositories {
         mavenCentral()
         maven {
             name = "forge"
-            url = "https://files.minecraftforge.net/maven"
+            url = "https://maven.minecraftforge.net/"
         }
         maven {
             name = "sonatype"
@@ -11,9 +11,17 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
+        changing = true
+        }
     }
 }
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
 
 apply plugin: 'forge'
 
@@ -25,7 +33,7 @@ compileJava.options.encoding = 'UTF-8'
 
 minecraft {
     version = "1.7.10-10.13.4.1481-1.7.10"
-    runDir = "eclipse"
+    runDir = "run"
 }
 
 repositories {
